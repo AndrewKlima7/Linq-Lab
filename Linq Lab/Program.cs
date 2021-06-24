@@ -152,21 +152,15 @@ namespace Linq_Lab
             //i tried putting them into a char[] then calling them in a foreach loop but that caused
             //all sorts of problems
             Console.WriteLine("Question 7s:");
+            char[] vowels = { 'A', 'E', 'I', 'O', 'U' };
             List<Students> Q13 = (from stu in students
-                                  where stu.Name.StartsWith('A') || 
-                                  stu.Name.StartsWith('E') || 
-                                  stu.Name.StartsWith('I') || 
-                                  stu.Name.StartsWith('O') || 
-                                  stu.Name.StartsWith('U')
+                                  where stu.Name.IndexOfAny(vowels, 0, 1)==0 
                                   select stu).ToList();
             PrintStudentsList(Q13);
 
             //METHOD SYNTAX IS COMMENTED OUT
-            //List<Students> Q13M = students.Where(x => x.Name.StartsWith('A') ||
-            //                      x.Name.StartsWith('E') ||
-            //                      x.Name.StartsWith('I') ||
-            //                      x.Name.StartsWith('O') ||
-            //                      x.Name.StartsWith('U')).ToList();
+            //char[] vowels1 = { 'A', 'E', 'I', 'O', 'U' };
+            //List<Students> Q13M = students.Where(x => x.Name.IndexOfAny(vowels1, 0, 1) == 0).ToList();
             //PrintStudentsList(Q13M);
         }
 
